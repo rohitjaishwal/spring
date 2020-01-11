@@ -10,20 +10,38 @@
 	<bean id="hello" class="com.tyss.springcore.beans.Hello"
 		init-method="init" destroy-method="destroy">
 		<property name="message" value="Spring Core Tutorials"></property>
+		<property name="map">
+			<map>
+				<entry key="one" value="1" />
+				<entry key="two" value="2" />
+			</map>
+		</property>
 	</bean>
+	
+	
 
 	<bean id="beanPostProcessorClass"
 		class="com.tyss.springcore.beans.BeanPostProcessorClass" />
-	
+
 	<bean id="beanFactoryPostProcessorClass"
-	class="com.tyss.springcore.beans.BeanFactoryPostProcessorClass" />
-	
-	<bean id="dog" class="com.tyss.springcore.beans.Dog" primary="true"/>
-	<bean id="cat" class="com.tyss.springcore.beans.Cat" />
-	
-	<bean id="pet" class="com.tyss.springcore.beans.Pet">
-		<property name="name" value="Tyson" />
-		<property name="animal" ref="dog" />
+		class="com.tyss.springcore.beans.BeanFactoryPostProcessorClass" />
+
+	<bean id="dog" class="com.tyss.springcore.beans.Dog" />
+	<bean id="cat" class="com.tyss.springcore.beans.Cat"
+		primary="true" />
+
+	<bean id="animal" class="com.tyss.springcore.beans.Dog" />
+
+	<!-- <bean id="pet" class="com.tyss.springcore.beans.Pet"> <constructor-arg 
+		name="name" value="Tyson" /> <constructor-arg name="animal" ref="dog" /> 
+		</bean> -->
+
+	<!-- <bean id="pet" class="com.tyss.springcore.beans.Pet"> <property name="name" 
+		value="Tyson" /> <property name="animal" ref="dog" /> </bean> -->
+
+	<bean id="pet" class="com.tyss.springcore.beans.Pet"
+		autowire="byName">
+		<property name="name" value="Snowbell"></property>
 	</bean>
 
 </beans>
