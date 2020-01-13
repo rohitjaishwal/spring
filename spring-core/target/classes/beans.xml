@@ -8,7 +8,7 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<bean id="hello" class="com.tyss.springcore.beans.Hello"
-		init-method="init" destroy-method="destroy">
+		init-method="init" destroy-method="coustomDestroy">
 		<property name="message" value="Spring Core Tutorials"></property>
 		<property name="map">
 			<map>
@@ -17,8 +17,8 @@
 			</map>
 		</property>
 	</bean>
-	
-	
+
+
 
 	<bean id="beanPostProcessorClass"
 		class="com.tyss.springcore.beans.BeanPostProcessorClass" />

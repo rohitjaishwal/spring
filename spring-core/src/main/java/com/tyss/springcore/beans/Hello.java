@@ -31,9 +31,14 @@ public class Hello implements InitializingBean, DisposableBean {
 	}
 	
 	public void init() {
-		System.out.println("Init method");
+		System.out.println("Coustom Init method");
 	}
 	
+	public void coustomDestroy() {
+		System.out.println("Coustom Destroy method");
+	}
+	
+	@Override
 	public void destroy() {
 		System.out.println("Destroy method");
 	}
