@@ -2,9 +2,14 @@ package com.tyss.springcore.beans;
 
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Hello implements InitializingBean, DisposableBean {
 	
 	public Hello() {
@@ -30,10 +35,12 @@ public class Hello implements InitializingBean, DisposableBean {
 		this.map = map;
 	}
 	
+	@PostConstruct
 	public void init() {
 		System.out.println("Coustom Init method");
 	}
 	
+	@PreDestroy
 	public void coustomDestroy() {
 		System.out.println("Coustom Destroy method");
 	}

@@ -1,8 +1,12 @@
 package com.tyss.springcore.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 public class Pet {
-	String name;
-	Animal animal;
+	private String name;
+	@Autowired
+//	@Qualifier("cat")
+	private Animal animal;
 	
 	public Pet() {}
 	

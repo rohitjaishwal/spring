@@ -3,7 +3,6 @@ package com.tyss.springcore;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.tyss.springcore.beans.Animal;
-import com.tyss.springcore.beans.Dog;
 import com.tyss.springcore.beans.Hello;
 import com.tyss.springcore.beans.Pet;
 import com.tyss.springcore.config.BeanConfig;
@@ -20,13 +19,17 @@ public class AnnotationApp {
 		Hello hello = context.getBean(Hello.class);
 		Hello hello1 = context.getBean(Hello.class);
 		System.out.println();
+		
 		System.out.println(hello);
 		System.out.println(hello1);
 		System.out.println();
+		
 		System.out.println(hello == hello1);
 		System.out.println();
+		
 		System.out.println(hello.getMessage());
 		System.out.println();
+		
 		System.out.println(hello.getMap());
 		System.out.println();
 		
@@ -40,13 +43,13 @@ public class AnnotationApp {
 		System.out.println(pet.getName());
 		System.out.println();
 		
-		Pet pet1 = context.getBean(Pet.class);
-		System.out.println(pet1.getAnimal());
-		System.out.println(pet1.getName());
-		System.out.println();
-		
-		System.out.println(pet == pet1);
-		System.out.println(pet.getAnimal() == pet1.getAnimal());
+		/*
+		 * Pet pet1 = context.getBean(Pet.class); System.out.println(pet1.getAnimal());
+		 * System.out.println(pet1.getName()); System.out.println();
+		 * 
+		 * System.out.println(pet == pet1); System.out.println(pet.getAnimal() ==
+		 * pet1.getAnimal());
+		 */
 		context.close();
 		
 	}

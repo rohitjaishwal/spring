@@ -8,7 +8,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Scope;
 
 import com.tyss.springcore.beans.BeanFactoryPostProcessorClass;
 import com.tyss.springcore.beans.BeanPostProcessorClass;
@@ -19,8 +18,10 @@ import com.tyss.springcore.beans.Pet;
 
 @Configuration
 public class BeanConfig {
-	@Bean(name = "hello", initMethod = "init", destroyMethod = "coustomDestroy")
+
+//	@Bean(name = "hello", initMethod = "init", destroyMethod = "coustomDestroy")
 //	@Scope("prototype")
+	@Bean(name = "hello")
 	public Hello getHello() {
 		Hello hello = new Hello();
 		hello.setMessage("This Configuration is via Annotation");
@@ -30,33 +31,34 @@ public class BeanConfig {
 		hello.setMap(map);
 		return hello;
 	}
-	
-	@Bean("dog" )
+
+	@Bean("dog")
 	@Primary
 //	@Scope("prototype")
 	public Dog getDog() {
 		return new Dog();
 	}
-	
+
+//	@Bean("animal")
 	@Bean("cat")
 	public Cat getCat() {
 		return new Cat();
 	}
-	
+
+//	@Bean(name = "pet", autowire = Autowire.BY_NAME)
 	@Bean("pet")
-	@Scope("prototype")
 	public Pet getPet() {
 		Pet pet = new Pet();
 		pet.setName("Abby");
-		pet.setAnimal(getDog());
+//		pet.setAnimal(getDog());
 		return pet;
 	}
-	
+
 	@Bean("beanFactoryPostProcessor")
 	public BeanFactoryPostProcessor getBeanFactoryPostProcessor() {
 		return new BeanFactoryPostProcessorClass();
 	}
-	
+
 	@Bean("beanPostProcessor")
 	public BeanPostProcessor getBeanPostProcessor() {
 		return new BeanPostProcessorClass();
